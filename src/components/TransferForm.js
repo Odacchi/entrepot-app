@@ -7,12 +7,18 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Alert from '@material-ui/lab/Alert';
+import {validateAddress, validatePrincipal} from "../ic/utils";
 
 export default function TransferForm(props) {
   const [address, setAddress] = React.useState("");
         
   const _submit = () => {
     //Validate address
+    console.log(validatePrincipal(address))
+    console.log(validateAddress(address))
+    // const principal_pattern = /^[a-z\d]{5}-[a-z\d]{5}-[a-z\d]{5}-[a-z\d]{5}-[a-z\d]{5}-[a-z\d]{5}-[a-z\d]{5}-[a-z\d]{5}-[a-z\d]{5}-[a-z\d]{5}-[a-z\d]{3}$/
+    // const address_pattern = /^[a-z\d]{64}$/
+
     handleClose();
     props.transfer(props.nft.id, address, props.buttonLoader, props.refresher);
   };
